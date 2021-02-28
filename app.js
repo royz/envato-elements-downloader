@@ -21,6 +21,8 @@ class Envato {
     await page.type('input[name="username"]', process.env.ENVATO_USERNAME)
     await page.type('input[name="password"]', process.env.ENVATO_PASSWORD)
     await page.click('button[data-test-selector="sign-in-submit"]')
+    await page.waitForNavigation({waitUntil: 'networkidle0'})
+    console.log('signed in')
   }
 
   downloadPresentationTemplates = async () => {
